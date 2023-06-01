@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card mt-5">
+        <div class="card-body">
+          <h2 class="card-title text-center">Update Note</h2>
+          <hr>
+          <form method="POST">
+            {% csrf_token %}
+            <div class="form-group mb-3">
+              <label for="id_title">Title</label>
+              <input type="text" name="title" id="id_title" class="form-control" value="{{ note.title }}">
+            </div>
+            <div class="form-group mb-3">
+              <label for="id_content">Content</label>
+              <textarea name="content" id="id_content" class="form-control" rows="10">{{ note.content }}</textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">Update</button>
+              <a href="{% url 'notes_list' %}" class="btn btn-secondary">Cancel</a>
+            </div>
+          </form>
+          {% if form.errors %}
+          <div class="alert alert-danger mt-4" role="alert">
+            <strong>Oops!</strong> Something went wrong.
+            <ul>
+              {% for field in form %}
+              {% for error in field.errors %}
+              <li>{{ error }}</li>
+              {% endfor %}
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

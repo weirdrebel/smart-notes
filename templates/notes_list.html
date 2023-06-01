@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="my-5">List of Your Notes</h1>
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    {% for note in notes %}
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <a href="{% url 'notes_detail' pk=note.id %}" class="text-decoration-none">
+              <h3 class="card-title">{{ note.title }}</h3>
+            </a>
+            <p class="card-text">{{ note.content }}</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
