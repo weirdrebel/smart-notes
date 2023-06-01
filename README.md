@@ -17,7 +17,7 @@ Smart Notes is a web application that allows users to manage their notes efficie
 - Bootstrap: A popular CSS framework that provides a responsive and modern user interface.
 - SQLite: A lightweight and easy-to-use database engine for storing note data.
 
-## Contributions
+## Contribution
 
 Contributions are welcome! Please follow these guidelines when contributing to the project:
 
